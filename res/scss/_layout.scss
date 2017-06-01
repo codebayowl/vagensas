@@ -2,7 +2,7 @@ html {
 	height: 100%;
 	font-size: $basic;
 }
-body {
+body, .wrapper {
 	background: $color-contrast $img-bg left top repeat;
 }
 .wrapper {
