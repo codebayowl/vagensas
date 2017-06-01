@@ -3,7 +3,7 @@ html {
 	font-size: $basic;
 }
 body {
-	background: $color-bg $img-bg;
+	background: $color-contrast $img-bg left top repeat;
 }
 .wrapper {
 	width: 100%;
