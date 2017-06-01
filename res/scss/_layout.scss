@@ -10,9 +10,13 @@ body {
 	height: 100%;
 	background-color: $color-bg;
 }
-#header {
+.wraphead, .wrapfoot {
 	display: block;
 	width: 100%;
 	background: $color-main;
+	margin: 0 $basic;
 	//overflow: hidden;
+}
+#logo {
+	display: inline-block;
 }

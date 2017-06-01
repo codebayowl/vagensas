@@ -28,8 +28,13 @@ html {
   background-color: #e9eaec;
 }
 
-#header {
+.wraphead, .wrapfoot {
   display: block;
   width: 100%;
   background: #1f3948;
+  margin: 0 16px;
+}
+
+#logo {
+  display: inline-block;
 }
