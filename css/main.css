@@ -38,3 +38,20 @@ html {
 #logo {
   display: inline-block;
 }
+
+.mainmenu_list {
+  list-style: none;
+}
+
+.mainmenu_item {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mainmenu_link {
+  display: block;
+  padding: 8px 16px;
+  line-height: 32px;
+  color: #e9eaec;
+  text-decoration: none;
+}

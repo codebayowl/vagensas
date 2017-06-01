@@ -20,3 +20,18 @@ body {
 #logo {
 	display: inline-block;
 }
+.mainmenu_list {
+	list-style: none;
+}
+.mainmenu_item {
+	display: inline-block;
+	vertical-align: top;
+}
+.mainmenu_link {
+	display: block;
+	padding: $basic / 2 $basic;
+	line-height: $basic * 2;
+	color: $color-bg;
+	text-decoration: none;
+	//
+}
