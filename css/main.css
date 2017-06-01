@@ -54,4 +54,5 @@ html {
   line-height: 32px;
   color: #e9eaec;
   text-decoration: none;
+  outline: 1px dotted red;
 }
