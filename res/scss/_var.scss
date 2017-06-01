@@ -7,5 +7,12 @@ $color-bg: #e9eaec;
 $color-bgdark: #c2c3c4;
 $img-bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAKCAMAAABL52QCAAAABlBMVEXCw8Tp6uwFw7MwAAAAF0lEQVR4AWNgYAQCCMEAIoAQgkA8/LIABOwAKWIaZEkAAAAASUVORK5CYII=);
 
+
 /* SIZING and calc */
 $basic: 16px;
+
+// visible text elements
+.mainmenu_link 
+{font-size: $basic;}
+// header size
+$header-size: $basic * 3;

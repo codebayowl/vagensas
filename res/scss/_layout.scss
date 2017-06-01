@@ -2,10 +2,17 @@ html {
 	height: 100%;
 	font-size: $basic;
 }
-body, .wrapper {
-	background: $color-contrast $img-bg left top repeat;
+body {
+	//background: $color-contrast $img-bg left top repeat;
 }
 .wrapper {
 	width: 100%;
 	height: 100%;
+	background-color: $color-bg;
+}
+#header {
+	display: block;
+	width: 100%;
+	background: $color-main;
+	//overflow: hidden;
 }
