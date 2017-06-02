@@ -32,11 +32,34 @@ html {
   display: block;
   width: 100%;
   background: #1f3948;
-  margin: 0 16px;
+}
+
+#header {
+  position: relative;
 }
 
 #logo {
-  display: inline-block;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #c2c3c4;
+  margin: 0 auto;
+}
+
+#mainmenu_button {
+  display: block;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 24px;
+  color: #e9eaec;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: 1px dotted red;
 }
 
 .mainmenu_list {
@@ -44,15 +67,18 @@ html {
 }
 
 .mainmenu_item {
-  display: inline-block;
-  vertical-align: top;
+  display: block;
 }
 
 .mainmenu_link {
   display: block;
-  padding: 8px 16px;
-  line-height: 32px;
+  line-height: 48px;
+  text-align: center;
+  text-transform: uppercase;
   color: #e9eaec;
   text-decoration: none;
-  outline: 1px dotted red;
+}
+
+.mainmenu_link:active {
+  background-color: #127e9b;
 }

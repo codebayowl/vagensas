@@ -1,34 +1,22 @@
 doctype html
 html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
-		meta(http-equiv="X-UA-Compatible" content="ie=edge")
-		link(rel="stylesheet" href="css/main.css")
-		title Portfolio
-	body
-		.wrapper
-			.wraphead
-				header#header
-					#logo
-					#mainmenu
-						#button_mainmenu
-						ul.mainmenu_list
-							li.mainmenu_item
-								a.mainmenu_link(href="#") Lifeline
-							li.mainmenu_item
-								a.mainmenu_link(href="#") Portfolio
-							li.mainmenu_item
-								a.mainmenu_link(href="#") Gallery
-							li.mainmenu_item
-								a.mainmenu_link(href="#") Articles
-			main.content
-				section#about
-				section#photo
-				section#design
-				section#frontend
-				section#backend
-				section#contacts
-			.wrapfoot
-				footer#footer
-			#top
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    link(rel="stylesheet" href="css/main.css")
+    title Portfolio
+  body
+    .wrapper
+      .wraphead
+        include res/jade/header.jade
+      main.content
+        include res/jade/about.jade
+        include res/jade/photo.jade
+        include res/jade/design.jade
+        include res/jade/frontend.jade
+        include res/jade/backend.jade
+        include res/jade/contacts.jade
+      .wrapfoot
+        include res/jade/footer.jade
+      #top

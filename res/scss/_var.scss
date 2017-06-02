@@ -10,9 +10,12 @@ $test: 1px dotted red;
 
 /* SIZING and calc */
 $basic: 16px;
+$logo-height: $basic * 5;
+$mainmenu-height: $basic * 3;
+$submenu-height: $logo-height - $mainmenu-height;
 
 // visible text elements
 .mainmenu_link 
 {font-size: $basic;}
-// header size
-$header-size: $basic * 3;
+
+// header calc
