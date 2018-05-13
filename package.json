@@ -1,8 +1,8 @@
 {
   "name": "vagensas",
   "version": "1.0.0",
-  "description": "wp vagensas template",
-  "main": "index.js",
+  "description": "Vagensas site template",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,10 +12,11 @@
   },
   "keywords": [
     "vagensas",
-    "wordpress"
+    "wp",
+    "temlpate"
   ],
   "author": "Dmytro Skydanenko",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Skidan/vagensas/issues"
   },
