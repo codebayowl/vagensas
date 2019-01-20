@@ -1,26 +1,17 @@
 {
-  "name": "vagensas",
+  "name": "todolist",
   "version": "1.0.0",
-  "description": "Vagensas site template",
+  "description": "Vue.js first app",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Skidan/vagensas.git"
-  },
   "keywords": [
-    "vagensas",
-    "wp",
-    "temlpate"
+    "Todo list",
+    "Vue.js"
   ],
   "author": "Dmytro Skydanenko",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/Skidan/vagensas/issues"
-  },
-  "homepage": "https://github.com/Skidan/vagensas#readme",
   "devDependencies": {
     "bower": "^1.8.4",
     "browser-sync": "^2.24.2",

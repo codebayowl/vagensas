@@ -1,6 +1,49 @@
 /* MAIN STYLES */
 
 #wrapper {
-	width: 769px;
+	width: 100%;
+	height: 100vh;
 	margin: 0 auto;
+}
+input {
+	height: 32px;
+	margin:0;
+	padding: 0;
+	line-height: 32px;
+	font-size: $basic;
+	&[type=text] {
+		border-radius: 5px;
+		border: 1px solid $color-main;
+		margin: 10px 0 10px 10px;
+		width: 510px;
+		text-indent: .5em;
+	}
+}
+button {
+	margin: 10px 5px !important;
+
+}
+#canvas {
+	width: 600px;
+	margin: 0 auto;
+	padding: 10px;
+}
+.item {
+	animation: appearing .3s ease-out;
+	color: $color-light;
+  margin: $basic $basic * 3;
+  padding: $basic/2 $basic/2 $basic/2 $basic;
+  border-left: $basic/4 solid $color-light;
+	font-style: italic;
+}
+
+@keyframes appearing {
+	0% {
+			opacity: 0;
+			transform: translateY(-10px);
+	}
+	100% {
+			opacity: 1;
+			transform: translateY(0);
+	}
 }

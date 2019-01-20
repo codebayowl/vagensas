@@ -2,5 +2,14 @@ doctype html
 html(lang="en")
 	include _head
 	body
+		script(src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js")
 		#wrapper
-			p lorem asdjfh asdjlf ;ljasdf llsdjf; oi
+			#canvas
+				#input
+					input(type="text" v-model="newContent")
+					button(@click='addItem').button.btn-primary Add
+				#todo-list
+					.item(v-for="todo in todos").info
+						span.item-text {{todo.content}} : {{todo.done}}
+				#done-list
+		script(src="js/script.js")
