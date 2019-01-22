@@ -12,6 +12,16 @@ var todoList = new Vue ({
 			} else {
 				console.log("Nothing to create");
 			}
+		},
+		undone: function (todos) {
+			return todos.filter(function (todo) {
+				return todo.done === false
+			})
+		},
+		done: function (todos) {
+			return todos.filter(function (todo) {
+				return todo.done === true
+			})
 		}
 	}
 });

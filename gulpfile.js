@@ -17,7 +17,7 @@ var gulp            = require('gulp'), 							// Их величество Gulp 
 // КОМПИЛЯЦИЯ Sass/SCSS
 gulp.task('styles', function() {
     return gulp.src([
-			'sources/styles/*.+(scss|sass)',																										// берем все файлы с расширением .scss и .sass в папках с аналогичными расширению названиями, ...
+			'sources/styles/*.scss',																										// берем все файлы с расширением .scss и .sass в папках с аналогичными расширению названиями, ...
 			'!sources/**/_*.*' 																																	// ... КРОМЕ файлов, начинающихся с нижнего подчёркивания
 		])
     .pipe(sass()) 																																				// Преобразуем Sass в CSS посредством gulp-sass
@@ -30,22 +30,16 @@ gulp.task('styles', function() {
 
 // СЖАТИЕ CSS БИБЛИОТЕК
 
-/////////////////////////////////////////////////////
-//																								 //
-//  !!! ВЫНЕСТИ СПИСОК БИБЛИОТЕК В ПЕРЕМЕННУЮ !!!  //
-//																								 //
-/////////////////////////////////////////////////////
-
-gulp.task('css-libs', ['styles'], function() {
-    return gulp.src([
-			'sources/assets/libraries/normalize.css/normalize.css',	// берём библиотеки (подключаем вручную, построчно)
-			'sources/assets/modules/**/*.css',											// далее берём все css в папке с модулями, ...
-			'!sources/**/_*.*'																			// ... НО бэз андерскоров в начале имени
-		])
-		.pipe(concat('libs.min.css')) 														// конкатенируем всю эту радость в файл libs.min.css
-		.pipe(cssnano()) 																					// Сжимаем его
-		.pipe(gulp.dest('sources/css')); 													// и выгружаем в папку sources/css
-});
+//gulp.task('css-libs', ['styles'], function() {
+//    return gulp.src([
+//			'sources/assets/libraries/normalize.css/normalize.css',	// берём библиотеки (подключаем вручную, построчно)
+//			'sources/assets/modules/**/*.css',											// далее берём все css в папке с модулями, ...
+//			'!sources/**/_*.*'																			// ... НО бэз андерскоров в начале имени
+//		])
+//		.pipe(concat('libs.min.css')) 														// конкатенируем всю эту радость в файл libs.min.css
+//		.pipe(cssnano()) 																					// Сжимаем его
+//		.pipe(gulp.dest('sources/css')); 													// и выгружаем в папку sources/css
+//});
 
 // КОМПИЛЯЦИЯ PUG
 gulp.task('pages', function() {
@@ -60,16 +54,9 @@ gulp.task('pages', function() {
 
 
 // ПЕРЕЖАТИЕ БИБЛИОТЕК JS
-
-/////////////////////////////////////////////////////
-//																								 //
-//  !!! ВЫНЕСТИ СПИСОК БИБЛИОТЕК В ПЕРЕМЕННУЮ !!!  //
-//																								 //
-/////////////////////////////////////////////////////
-
 gulp.task('scripts', function() {
     return gulp.src([ 																			// Берем все необходимые библиотеки:
-			'sources/assets/libraries/jquery/dist/jquery.min.js'	//  - jQuery,
+			'sources/assets/libraries/vuejs/vue.js'								//  - VueJS,
 		])
 		.pipe(concat('libs.min.js')) 														// Собираем их в кучу в новом файле libs.min.js
 		.pipe(uglify())																					// Сжимаем этот файл
@@ -90,8 +77,8 @@ gulp.task('browser-sync', function() {
 
 
 // ШПИЁН
-gulp.task('watch', ['browser-sync', 'css-libs', 'pages', 'scripts'], function() {	// Перед запуском Вотча запустить сервер окна браузера, скомпайлить цсс с пагом, пережать библиотеки
-	gulp.watch('sources/styles/*.+(sass|scss)', ['styles']); 												// watch sass/scss files
+gulp.task('watch', ['browser-sync', 'styles', 'pages', 'scripts'], function() {	// Перед запуском Вотча запустить сервер окна браузера, скомпайлить цсс с пагом, пережать библиотеки
+	gulp.watch('sources/styles/*.scss', ['styles']); 												// watch sass/scss files
 	gulp.watch('sources/pages/*.pug', ['pages']);																		// watch pug files
 	gulp.watch('sources/*.html', browserSync.reload);																// watch HTML files
 	gulp.watch('sources/js/**/*.js', browserSync.reload);														// watch JS files
@@ -103,19 +90,19 @@ gulp.task('clean', function() {
 	return del.sync('public');					// Удаляем папку public перед сборкой
 });
 // imgs
-gulp.task('img', function() {
-	return gulp.src('sources/img/**/*') // Берем все изображения из sources
-		.pipe(cache(imagemin({  					// Сжимаем их с наилучшими настройками с учетом кеширования
-			interlaced: true,
-			progressive: true,
-			svgoPlugins: [{removeViewBox: false}],
-			use: [pngquant()]
-		})))
-		.pipe(gulp.dest('public/img')); 	// Выгружаем на продакшен
-});
+//gulp.task('img', function() {
+//	return gulp.src('sources/img/**/*') // Берем все изображения из sources
+//		.pipe(cache(imagemin({  					// Сжимаем их с наилучшими настройками с учетом кеширования
+//			interlaced: true,
+//			progressive: true,
+//			svgoPlugins: [{removeViewBox: false}],
+//			use: [pngquant()]
+//		})))
+//		.pipe(gulp.dest('public/img')); 	// Выгружаем на продакшен
+//});
 	
 // build
-gulp.task('build', ['clean', 'img', 'styles', 'pages', 'scripts'], function() {
+gulp.task('build', ['clean', /*'img',*/ 'styles', 'pages', 'scripts'], function() {
  
     var buildCss = gulp.src([ 									// Переносим библиотеки в продакшн
 			'sources/css/libs.min.css',
@@ -126,9 +113,9 @@ gulp.task('build', ['clean', 'img', 'styles', 'pages', 'scripts'], function() {
  
     var buildJs = gulp.src([ 
 			'sources/js/libs.min.js', 								// берём минимизированные библиотеки,
-			'sources/js/styles.js' 										// и наш несжатый скрипт для сайта
+			'sources/js/script.js' 										// и наш несжатый скрипт для сайта
 		])
-		.pipe(concat('styles.js')) 									// сливаем их в один файл
+		.pipe(concat('script.js')) 									// сливаем их в один файл
     .pipe(gulp.dest('public/js')); 							// и выгружаем в продакшн
  
     var buildHtml = gulp.src('sources/*.html')	// Переносим HTML в продакшн

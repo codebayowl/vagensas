@@ -6,10 +6,20 @@ html(lang="en")
 		#wrapper
 			#canvas
 				#input
-					input(type="text" v-model="newContent")
+					input(type="text" placeholder="Добавьте задачу..." v-model="newContent" @keyup.enter="addItem" @keyup.esc='newContent=""')
 					button(@click='addItem').button.btn-primary Add
 				#todo-list
-					.item(v-for="todo in todos").info
-						span.item-text {{todo.content}} : {{todo.done}}
+					.item(v-for="(item, index) in undone(todos)").info
+						i(aria-hidden="true" @click="todos.splice(index, 1, {done:true, content: todos[index].content})").fa.fa-square-o
+						span.item-text {{item.content}}
+						.submenu.button.btn-danger(@click="todos.splice(index, 1)")
+							span.delete
+								i(aria-hidden="true").fa.fa-trash-o
 				#done-list
+					.item(v-for="(item, index) in done(todos)").success
+						i(aria-hidden="true" @click="todos.splice(index, 1, {done:false, content: todos[index].content})").fa.fa-check-square-o
+						span.item-text {{item.content}}
+						.submenu.button.btn-danger(@click="todos.splice(index, 1)")
+							span.delete
+								i(aria-hidden="true").fa.fa-trash-o
 		script(src="js/script.js")
