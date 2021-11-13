@@ -1,70 +1,23 @@
 <!DOCTYPE html>
-<html lang="ru">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Todo List</title>
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Infant:400,700|Roboto:400,400i,700,700i|Ubuntu+Mono&amp;amp;subset=cyrillic-ext,latin-ext">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	</head>
-	<body>
-		<script src="js/vue.js"></script>
-		<div id="wrapper">
-			<div id="canvas">
-				<div id="input">
-					<input 
-					type="text" 
-					placeholder="Добавьте задачу..." 
-					v-model="newContent" 
-					@keyup.enter="addItem" 
-					@keyup.esc="newContent=&quot;&quot;">
-					<button 
-					class="button btn-primary" 
-					@click="addItem">Add</button>
-				</div>
-				<div id="todo-list">
-					<div 
-					class="item info" 
-					v-for="(item, index) in undone(todos)">
-						<i 
-						class="fa fa-square-o" 
-						aria-hidden="true" 
-						@click="check(index)">
-						</i>
-						<span class="item-text">{{item.content}}</span>
-						<div 
-						class="submenu button btn-danger" 
-						@click="todos.splice(index, 1)">
-							<span class="delete">
-								<i class="fa fa-trash-o" aria-hidden="true"></i>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div id="done-list">
-					<div 
-					class="item success" 
-					v-for="(item, index) in done(todos)">
-						<i 
-						class="fa fa-check-square-o" 
-						aria-hidden="true" 
-						@click="uncheck(index)"></i>
-						<span class="item-text">{{item.content}}</span>
-						<div 
-						class="submenu button btn-danger" 
-						@click="todos.splice(index, 1)">
-							<span class="delete">
-								<i
-								class="fa fa-trash-o"
-								aria-hidden="true"></i>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script src="js/script.js"></script>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <script> type="text/javascript"
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello my Vue'
+            }
+        })
+    </script>    
+</body>
 </html>
