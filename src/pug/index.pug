@@ -1,25 +1,9 @@
 doctype html
 html(lang="en")
-	include _head
+	include _header
 	body
-		script(src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js")
-		#wrapper
-			#canvas
-				#input
-					input(type="text" placeholder="Добавьте задачу..." v-model="newContent" @keyup.enter="addItem" @keyup.esc='newContent=""')
-					button(@click='addItem').button.btn-primary Add
-				#todo-list
-					.item(v-for="(item, index) in undone(todos)").info
-						i(aria-hidden="true" @click="todos.splice(index, 1, {done:true, content: todos[index].content})").fa.fa-square-o
-						span.item-text {{item.content}}
-						.submenu.button.btn-danger(@click="todos.splice(index, 1)")
-							span.delete
-								i(aria-hidden="true").fa.fa-trash-o
-				#done-list
-					.item(v-for="(item, index) in done(todos)").success
-						i(aria-hidden="true" @click="todos.splice(index, 1, {done:false, content: todos[index].content})").fa.fa-check-square-o
-						span.item-text {{item.content}}
-						.submenu.button.btn-danger(@click="todos.splice(index, 1)")
-							span.delete
-								i(aria-hidden="true").fa.fa-trash-o
-		script(src="js/script.js")
+		#wrapper.container 
+			section#about.item.info
+				h1 Static boilerplate 
+				h3 for Pug and Scss (operated by Gulp)
+		script(src="js/scripts.js")

@@ -1,5 +1,3 @@
 node_modules/
-bower_components/
-libraries/
 .vscode/
 package-lock.json
