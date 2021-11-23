@@ -37,8 +37,8 @@ function styles() {
         '!src/scss/_*.scss'
     ])
     .pipe(sass())
-    //.pipe(vendorize({ overrideBrowserslist: ['last 10 versions'], grid: true })) // adding autoprefixes for old browsers
-    //.pipe(cleancss( ( { level: { 1: { specialComments: 0} }, format: 'beautify' } ) ) )
+    .pipe(vendorize({ overrideBrowserslist: ['last 10 versions'], grid: true })) // adding autoprefixes for old browsers
+    .pipe(cleancss( ( { level: { 1: { specialComments: 0} }, format: 'beautify' } ) ) )
     //.pipe(concat('styles.css'))
     .pipe(dest('preprod/css/')) // outputting to preprod
     .pipe(browserSync.stream()) // adding watching w/o hard reload of page
