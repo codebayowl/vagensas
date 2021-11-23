@@ -2,7 +2,7 @@ const {src, dest, parallel,series, watch} = require('gulp'); // connecting gulp 
 const browserSync = require('browser-sync').create(); // connecting standalone node.js module to the project
 const concat = require('gulp-concat'); // connecting standalone node.js module to the project
 const uglify = require('gulp-uglify-es').default; // !!READ DOCUMENTATION FOR ".default"!! connecting standalone node.js module to the project
-const scss = require('gulp-sass')(require('sass')); // connecting standalone node.js module to the project
+const sass = require('gulp-sass')(require('sass')); // connecting standalone node.js module to the project
 const vendorize = require('gulp-autoprefixer'); // connecting standalone node.js module to the project
 const cleancss = require('gulp-clean-css'); // connecting standalone node.js module to the project
 const pug = require('gulp-pug'); // connecting standalone node.js module to the project
@@ -36,14 +36,21 @@ function styles() {
         'src/scss/*.scss',
         '!src/scss/_*.scss'
     ])
-    .pipe(scss())
-    .pipe(vendorize({ 
-        overrideBrowserslist: ['last 10 versions'], 
-        grid: true
-    })) // adding autoprefixes for old browsers
-    .pipe(cleancss( ( { level: { 1: { specialComments: 0} }, format: 'beautify' } ) ) )
+    .pipe(sass())
+    //.pipe(vendorize({ overrideBrowserslist: ['last 10 versions'], grid: true })) // adding autoprefixes for old browsers
+    //.pipe(cleancss( ( { level: { 1: { specialComments: 0} }, format: 'beautify' } ) ) )
     //.pipe(concat('styles.css'))
     .pipe(dest('preprod/css/')) // outputting to preprod
+    .pipe(browserSync.stream()) // adding watching w/o hard reload of page
+}
+
+function scripts() {
+    return src([
+        'src/js/vue.global.js',
+        'src/js/scripts.js'
+    ])
+    .pipe(concat('scripts.js'))
+    .pipe(dest('preprod/js/')) // outputting to preprod
     .pipe(browserSync.stream()) // adding watching w/o hard reload of page
 }
 
@@ -56,15 +63,6 @@ function minifyImg() {
 
 function cleanImg() {
     return del('preprod/img/**/*', {force: true})
-}
-
-function scripts() {
-    return src([
-        'src/js/*.js'
-    ])
-    //.pipe(concat('scripts.js'))
-    .pipe(dest('preprod/js/')) // outputting to preprod
-    .pipe(browserSync.stream()) // adding watching w/o hard reload of page
 }
 
 function cleanprod() {

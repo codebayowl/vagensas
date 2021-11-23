@@ -55,8 +55,8 @@ p {
 blockquote {
   color: $color-light;
   margin: $basic $basic * 3;
-  padding: $basic/2 $basic/2 $basic/2 $basic;
-  border-left: $basic/4 solid $color-light;
+  padding: math.div($basic, 2)  math.div($basic, 2) math.div($basic, 2) $basic;
+  border-left: math.div($basic, 4) solid $color-light;
 	font-style: italic;
 	border-radius: 0 $basic $basic 0;
 }
@@ -84,12 +84,12 @@ select {
 }
 //-----------------------
 .button-inline {
-  display: inline-block; // 2 lines - changing a type of an element...
-  vertical-align: baseline;   // ...from inline to inline-block.
+  display: inline-block; 
+  vertical-align: baseline;   
   height: $line-h; //vertical size of the block.
   padding: 0 1em; //horizontal size - adding an extra space on edges.
   line-height: $line-h; //vertical align of the text.
-  margin: 0 $line-h / 2; //horizontal spaces in text block.
+  margin: 0 math.div($line-h, 2); //horizontal spaces in text block.
   // And now decorating
   background: $gradient-bg;
   font-size: $basic;
@@ -116,11 +116,11 @@ select {
 .button {
   display: inline-block;
   vertical-align: top;
-  margin: $basic / 4;
+  margin: math.div($basic, 4);
   background-color: rgba(233,234,236,.3);
   color: $color-main;
   padding: 0 $basic;
-  border-radius: $basic / 4;
+  border-radius: math.div($basic, 4);
   border: 1px solid $color-neutral;
   line-height: $basic * 2;
   box-shadow: 0 4px 4px rgba(0,0,0,.1);
@@ -233,15 +233,15 @@ img {
 }
 .img-article {
   width: calc(100% - 24px);
-  margin: $basic / 4 * 3;
+  margin: math.div($basic, 4) * 3;
 }
 .thumb {
   width: calc(100% - 24px);
-  margin: $basic / 2;
-  border-width: $basic / 2;
+  margin: math.div($basic, 2);
+  border-width: math.div($basic, 2);
   border-style: solid;
   border-color: white;
-  box-shadow: 0 0 $basic/2 rgba(0,0,0,.3);
+  box-shadow: 0 0 math.div($basic, 2) rgba(0,0,0,.3);
 }
 .thumb-320 {
   width: 288px;
@@ -337,8 +337,8 @@ button {
 	position: relative;
 	animation: adding .3s ease-out;
   margin: $basic;
-  padding: $basic/2;
-  border-left: $basic/4 solid;
+  padding: math.div($basic, 2);
+  border-left: math.div($basic, 4) solid;
   font-style: italic;
 	border-radius: 0 19px 19px 0;
 }
