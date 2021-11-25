@@ -1,0 +1,10 @@
+#mainlogo {
+  fill: #900
+}
+.undefined #mainlogo {
+  fill: #4b4b4b
+}
+.icon,
+.pixelgraph {
+  fill: #f5f5f5
+}
