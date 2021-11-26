@@ -3,7 +3,30 @@ html(lang="en")
 	include _header
 	body
 		#wrapper.container 
-			section#about.item.danger
-				h1 Static boilerplate 
-				h3 for Pug and Scss (operated by Gulp)
+			header
+				div.logoblock
+					include _logo_optimized
+				nav#mainmenu
+					ul.mainmenu 
+						li 
+							a(href="#") FurnInfo
+						li 
+							a(href="#") Workhouse
+						li 
+							a(href="#") Hot offers
+						li 
+							a(href="#") Where to find
+						li 
+							a(href="#") Contact us
+			main
+				section#info.infoblock
+				section#about.infoblock
+				section#works.infoblock
+				section#howitworks.infoblock
+				section#howtofind.infoblock
+				section#partners.infoblock
+			footer 
+				section#contacts 
+				section#links
+				
 		script(src="js/scripts.js")

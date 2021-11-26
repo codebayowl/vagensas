@@ -1,10 +1,20 @@
 /*********** SVG STYLES ************/
+@import "_varmix";
 #mainlogo {
+  display: block;
+  position: absolute;
+  top: $basic;
+  left: $basic;
+
+  width: $basic*8;
+  height: ($basic*8)*1.114;
+}
+#hexunderplate {
+  fill: #fff;
+}
+#hexagonborder {
   fill: #900;
 }
-.undefined #mainlogo {
-  fill: #4b4b4b;
-}
-.pixelgraph, .icon {
-  fill: whitesmoke;
+#signa, #signv {
+  fill: #6e6e6e;
 }
