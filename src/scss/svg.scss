@@ -2,10 +2,6 @@
 @import "_varmix";
 #mainlogo {
   display: block;
-  position: absolute;
-  top: $basic;
-  left: $basic;
-
   width: $basic*8;
   height: ($basic*8)*1.114;
 }

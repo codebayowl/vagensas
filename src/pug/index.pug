@@ -3,8 +3,8 @@ html(lang="en")
 	include _header
 	body
 		#wrapper.container 
-			header
-				div.logoblock
+			header.header
+				#logoblock
 					include _logo_optimized
 				nav#mainmenu
 					ul.mainmenu 
@@ -12,12 +12,13 @@ html(lang="en")
 							a(href="#") FurnInfo
 						li 
 							a(href="#") Workhouse
-						li 
+						li#hotoffers
 							a(href="#") Hot offers
 						li 
 							a(href="#") Where to find
 						li 
 							a(href="#") Contact us
+					#navmenuadspace.dsp-grey
 			main
 				section#info.infoblock
 				section#about.infoblock

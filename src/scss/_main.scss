@@ -8,10 +8,94 @@
 [v-cloak] {
   display: none;
 }
-header {
-  width: 100%;
-  height: ($basic * 8 * 1.114) + ($basic * 2); // according to svg logo size
+.dsp-grey {
+  background-color: $color-light;
+  //background: $color-light url("/../img/whitewoodbg.jpg") center center no-repeat;
+  border-radius: math.div($basic, 4);
+  border-width: math.div($basic, 8);
+  border-color: $color-light;
+  border-style: solid;
+  border-top-color: lighten($color-light, 25%);
+  border-left-color: lighten($color-light, 25%);
+  border-right-color: darken($color-light, 25%);
+  border-bottom-color: darken($color-light, 25%);
+  box-shadow: 0 $basic $basic rgba(0,0,0,.6);  
 }
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  //background-color: $color-dark;
+  background: $color-dark url("/../img/darkwoodtexture.jpg") center center no-repeat;
+  //height: ($basic * 8 * 1.114) + ($basic * 2); // according to svg logo size
+  // & > * {
+  //   background-color: $color-light;
+  // }
+}
+#logoblock {
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: $basic $basic*2;
+  margin: math.div($basic,8);  
+}
+#mainmenu {
+  display: flex;
+  flex-shrink:0;
+  flex-grow:1;
+  flex-flow: column-reverse nowrap;
+  background: none;
+  //outline:orangered dashed 1px;
+  margin: math.div($basic,8);
+}
+#navmenuadspace {
+  flex-grow: 1;
+  margin: math.div($basic,4);
+}
+.mainmenu {
+  flex-grow: 0;
+  flex-basis: $basic * 5;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  
+  & li {
+    align-content: flex-end;
+    //outline: yellow dotted 1px;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    & a { 
+      display: inline-block;     
+      padding: math.div($basic, 2);
+      color: $color-light;
+      transition: color 0.3s;
+      text-shadow: 0 1px 2px black;
+      //outline: magenta dashed 1px;
+      &:hover {
+        color: whitesmoke;
+        transition: color 0.3s;
+        text-shadow: 0 2px 5px black;
+      }
+    }
+  }
+  #hotoffers {
+    & a {
+      color: orangered;
+      transition: color 0.3s;
+      text-shadow: 0 1px 2px grba(0,0,0,.4);
+      &:hover {
+        color: yellow;
+        transition: color 0.3s;
+        text-shadow: 0 2px 5px orange;
+      }
+    }    
+  }
+}
+
+
+
+
+
 
 .infoblock {
   height: 100px;
@@ -19,26 +103,8 @@ header {
   outline: $test;
 }
 .infoblock:nth-child(odd) {
-  background-color: $color-neutral;
+  //background-color: $color-neutral;
 }
 .infoblock:nth-child(even) {
-  background-color: $color-light;
-}
-
-#mainmenu {
-  display: block;
-  margin-top: 40px;
-  //outline: $test;
-  text-align: center;
-  background-color: $color-dark;
-}
-.mainmenu {
-  list-style-type: none;
-  display: block;
-  margin-left: $basic * 10;
-  outline: yellow dotted 1px;
-  & li {
-    display: inline-block;
-    padding: 10px 20px;
-  }
+  //background-color: $color-light;
 }

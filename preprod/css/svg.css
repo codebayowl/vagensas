@@ -1,0 +1,15 @@
+#mainlogo {
+  display: block;
+  width: 128px;
+  height: 142.592px
+}
+#hexunderplate {
+  fill: #fff
+}
+#hexagonborder {
+  fill: #900
+}
+#signa,
+#signv {
+  fill: #6e6e6e
+}
