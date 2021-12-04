@@ -514,7 +514,7 @@ button {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  background: #777 url(/../img/darkwoodtexture.jpg) center center no-repeat
+  background: #777 url(/../img/darkwoodtexture.jpg) center center repeat
 }
 #logoblock {
   -ms-flex-negative: 0;

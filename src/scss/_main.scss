@@ -26,7 +26,7 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   //background-color: $color-dark;
-  background: $color-dark url("/../img/darkwoodtexture.jpg") center center no-repeat;
+  background: $color-dark url("/../img/darkwoodtexture.jpg") center center repeat;
   //height: ($basic * 8 * 1.114) + ($basic * 2); // according to svg logo size
   // & > * {
   //   background-color: $color-light;
